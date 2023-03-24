@@ -5,22 +5,26 @@ void CheckElementsInArray(string[] array)
     string[] newArray = new string[0];
     for (int i = 0; i < array.Length; i++)
     {
-        // PrintArray(MakeNewArray(newArray, array[i], i));
-        Console.WriteLine(array[i]);
+        MakeNewArray(newArray, array[i]);
+        // Console.WriteLine(array[i]);
     }
+    PrintArray(newArray);
+    Console.WriteLine(newArray.Length);
 }
 
-// string[] MakeNewArray(string[] array, string element, int index)
-// {
-//     Array.Resize(ref array, array.Length + 1);
-//     array[index] = element;
-//     return array;
-// }
+string[] MakeNewArray(string[] array, string element)
+{
+    Array.Resize(ref array, array.Length + 1);
+    array[array.Length-1] = element;
+    return array;
+}
 
 void PrintArray(string[] array)
 {
-    Console.WriteLine("[" + $"{String.Join(", ", array)}" + "]");
+    Console.Write("[" + $"{String.Join(", ", array)}" + "]");
 }
 
 PrintArray(elementsArray);
+Console.WriteLine();
 CheckElementsInArray(elementsArray);
+Console.WriteLine();
